@@ -1,0 +1,19 @@
+<?php
+require_once 'includes\database.inc';
+require_once 'includes\functions.inc';
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+    <div id="menu">
+        <ul>
+            <li><a href="login.php">Login</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact US</a></li>
+        </ul>
+    </div>
