@@ -3,7 +3,8 @@ require_once('includes\header.inc');
 ?>
 
 <div id="main">
-    <h1>Campus Inventory Assets</h1>
+    Username: <?php echo $_POST["username"]; ?><br/>
+    Password: <?php echo $_POST["passwd"]; ?><br/>
 </div>
 
 <?php

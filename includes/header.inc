@@ -7,11 +7,12 @@ require_once 'includes\functions.inc';
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Welcome</title>
+    <title>Campus Inventory Assets</title>
 </head>
 <body>
     <div id="menu">
         <ul>
+            <li><a href="index.php">Home</a></li>
             <li><a href="login.php">Login</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="contact.php">Contact US</a></li>

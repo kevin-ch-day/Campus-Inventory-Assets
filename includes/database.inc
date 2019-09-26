@@ -22,10 +22,12 @@ if(!$conn->query($sql)){
 
 mysqli_select_db($conn, $dbName) or die(mysql_error());
 
+/*
 $sql = "SHOW TABLES FROM {$dbName}";
 if(!$conn->query($sql)) {
 	setupDatabase();
 }
-
 setupDatabase();
+*/
+
 ?>
