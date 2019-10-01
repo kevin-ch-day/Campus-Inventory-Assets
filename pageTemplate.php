@@ -3,7 +3,8 @@ require_once('includes\header.inc');
 ?>
 
 <div id="main">
-    <h1>Contact us</h1>
+    <h1>Header</h1>
+    <p>Text</p>
 </div>
 
 <?php
