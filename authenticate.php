@@ -1,6 +1,7 @@
 <?php
-require_once('includes\header.inc');
-$refreshTime = 1;
+require_once('../private/initialize.php');
+$page_title = 'Administrator Menu';
+include(SHARED_PATH . '/header.php');
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -41,5 +42,7 @@ if(!$_POST["username"] && !$_POST["password"]){
         header('Refresh: '.$refreshTime.'; URL = login.php');
     }
 }
-require_once('includes\footer.inc');
+
+include(SHARED_PATH . '/footer.php');
 ?>
+

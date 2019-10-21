@@ -1,12 +1,16 @@
 <?php
-require_once('includes\header.inc');
+require_once('../private/initialize.php');
+$page_title = 'Administrator Menu';
+include(SHARED_PATH . '/header.php');
 ?>
 
-<div id="main">
-    <h1>About our system</h1>
-    <p>An application that school technology administrators can use to track electronic devices </p>
+<div id="content">
+  <div id="main">
+        <h1>About our system</h1>
+        <p>An application that school technology administrators can use to track electronic devices </p>
+    </div>
 </div>
 
 <?php
-require_once('includes\footer.inc');
+include(SHARED_PATH . '/footer.php');
 ?>
