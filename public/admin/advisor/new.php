@@ -3,14 +3,15 @@
 require_once('../../../private/initialize.php');
 
 if(is_post_request()) {
-  $name = $_POST["building_name"];
-  $city = $_POST["building_city"];
+  $id = $_POST["advisorId"];
+  $fname = $_POST["fname"];
+  $lname = $_POST["lname"];
   $date = date("Y-m-d");
 } else {
   // to do
 }
 
-$page_title = 'Create a Building';
+$page_title = 'Create a Advisor';
 include(SHARED_PATH . '/admin_header.php');
 ?>
 
@@ -19,10 +20,12 @@ include(SHARED_PATH . '/admin_header.php');
   <a class="back-link" href="<?php echo url_for('/admin/building/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="page new">
-    <h1>Create Building</h1>
+    <h1>Create Advisor</h1>
     <form action="<?php echo url_for('/admin/building/new.php'); ?>" method="post">
-      Building Name: <input type ="text" name="building_name"><br>
-      Building City: <input type ="text" name="building_city"><br>
+      Advisor ID:<input type ="text" name="advisorId"><br>
+      First Name:<input type ="text" name="fname"><br>
+      Last Name:<input type ="text" name="lname"><br>
+      Building ID:<input type ="text" name="buildingId"><br>
       <input type="submit" value="Submit">
     </form>
   </div>
