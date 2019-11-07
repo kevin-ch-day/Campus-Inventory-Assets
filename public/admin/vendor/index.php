@@ -14,7 +14,7 @@ $vendor_set = query($sql);
     <h1>Vendors</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/admin/building/new.php'); ?>">Create a new vendor</a>
+      <a class="action" href="<?php echo url_for('/admin/vendor/new.php'); ?>">Create a new vendor</a>
     </div>
 
   	<table class="list">

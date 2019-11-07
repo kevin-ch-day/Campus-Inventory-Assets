@@ -22,11 +22,10 @@ include(SHARED_PATH . '/admin_header.php');
   <div class="page new">
     <h1>Create Student</h1>
     <form action="<?php echo url_for('/admin/building/new.php'); ?>" method="post">
-      Student ID:<input type ="text" name="studentID"><br>
-      First Name:<input type ="text" name="fname"><br>
-      Last Name:<input type ="text" name="lname"><br>
-      Graduation Year:<input type ="text" name="gradYear"><br>
-      Advisor ID:<input type ="text" name="advisorID"><br>
+      Warranty ID:<input type ="text" name="warrantyID"><br>
+      Original Date:<input type ="text" name="OriginalDate"><br>
+      End Date:<input type ="text" name="endDate"><br>
+      Available Users:<input type ="text" name="avaiableUsers"><br>
       <input type="submit" value="Submit">
     </form>
   </div>
