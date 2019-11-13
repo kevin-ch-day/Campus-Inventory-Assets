@@ -34,9 +34,13 @@ if(!$_POST["username"] && !$_POST["password"]){
     </div>
 <?php
 }else{
-    if(authentication($_POST["username"], $_POST["password"])){
+    
+    $username = trim($_POST["username"]);
+    $passwd = trim($_POST["password"]);
+
+    if(authentication($username, $passwd)){
         echo "<h1>Access Granted!!</h1>";
-        header('Refresh: '.$refreshTime.'; URL = private\admin.php');
+        header('Refresh: '.$refreshTime.'; URL = admin\index.php');
     }else{
         echo "<h1>Bad username and password</h1>";
         header('Refresh: '.$refreshTime.'; URL = login.php');

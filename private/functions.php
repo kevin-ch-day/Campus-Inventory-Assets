@@ -1,4 +1,6 @@
 <?php
+require_once('database.php');  
+$db = db_connect();
 
 function url_for($script_path) {
   // add the leading '/' if not present
@@ -51,22 +53,27 @@ function query($sql){
   return $result;
 }
 
-function authentication($user, $pass){
-	global $conn;
-    mysqli_select_db($conn, "users");
+function authentication($user, $passwd){
+  global $db;
+  echo $user." ".$passwd."<br/>";
 
-    if(empty($username_err) && empty($password_err)){
-        $sql = "select username, password from users";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                if(strcmp($row["username"], $_POST["username"])){
-                    if($row["password"] == $_POST["password"]){
-                        return true;
-                    }
-                }
-            }
-            return false;
+  mysqli_select_db($db, "users");
+
+  if(empty($username_err) && empty($password_err)){
+    $sql = "select username, password from users";
+    $result = $db->query($sql);
+    if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+        echo "Testing username & password<br/>";
+        echo "Username: ".$row["username"]."<br/>";
+        echo "Password: ".$_POST["password"]."<br/>";
+        if(!strcmp($row["username"], $user)){
+          if(!strcmp($row["password"], $passwd)){
+            return true;
+          }
+        }
+      }
+      return false;
 		}
 	}
 }

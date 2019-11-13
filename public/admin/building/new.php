@@ -3,9 +3,13 @@
 require_once('../../../private/initialize.php');
 
 if(is_post_request()) {
-  $name = $_POST["building_name"];
-  $city = $_POST["building_city"];
+  $buildingId = $_POST["buildingId"];
+  $name = $_POST["name"];
+  $city = $_POST["city"];
   $date = date("Y-m-d");
+
+  $sql = "INSERT INTO building (building_id, building_name, building_city, build_create_date) VALUES ('$buildingId', '$name', '$city', '$date')";
+  query($sql);
 } else {
   // to do
 }
@@ -21,8 +25,9 @@ include(SHARED_PATH . '/admin_header.php');
   <div class="page new">
     <h1>Create Building</h1>
     <form action="<?php echo url_for('/admin/building/new.php'); ?>" method="post">
-      Building Name: <input type ="text" name="building_name"><br>
-      Building City: <input type ="text" name="building_city"><br>
+      Building ID: <input type ="text" name="buildingId"><br>
+      Building Name: <input type ="text" name="name"><br>
+      Building City: <input type ="text" name="city"><br>
       <input type="submit" value="Submit">
     </form>
   </div>
