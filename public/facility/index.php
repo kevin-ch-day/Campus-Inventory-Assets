@@ -8,10 +8,11 @@ include(SHARED_PATH . '/header.php');
   <div id="main-menu">
   <form action="<?php echo url_for('/admin/facility/index.php'); ?>" method="post">
       <select name="issues">
-        <option value="volvo">Broken Screen</option>
-        <option value="saab">Keyboard Issue</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Other</option>
+        <option value="screen">Broken Screen</option>
+        <option value="keyboard">Keyboard Issue</option>
+        <option value="network">No Internet Connection</option>
+        <option value="power">Will not turn on</option>
+        <option value="other">Other</option>
       </select> 
       <input type="submit" value="Submit">
     </form>
