@@ -59,7 +59,6 @@ function query($sql){
 
 function authentication($user, $passwd){
   global $db;
-  echo $user." ".$passwd."<br/>";
 
   mysqli_select_db($db, "users");
 
@@ -68,8 +67,6 @@ function authentication($user, $passwd){
     $result = $db->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
-        echo "Username: ".$row["username"]."<br/>";
-        echo "Password: ".$_POST["password"]."<br/>";
         if(!strcmp($row["username"], $user)){
           if(!strcmp($row["password"], $passwd)){
             return true;
@@ -79,6 +76,19 @@ function authentication($user, $passwd){
       return false;
 		}
 	}
+}
+
+function isAdmin($username){
+	$sql = "select * from application_users";
+	$set = query($sql);
+	while($i = mysqli_fetch_assoc($set)){
+		if(!strcmp($i['username'], $username)){
+			if($i['admin'] == 1){
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 ?>

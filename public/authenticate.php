@@ -7,6 +7,7 @@ include(SHARED_PATH . '/header.php');
 $username = $password = "";
 $username_err = $password_err = "";
 $msg = "";
+$refreshTime = 2;
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -40,7 +41,11 @@ if(!$_POST["username"] && !$_POST["password"]){
 
     if(authentication($username, $passwd)){
         echo "<h1>Access Granted!!</h1>";
-        header('Refresh: '.$refreshTime.'; URL = admin\index.php');
+        if(isAdmin($username)){
+            header('Refresh: '.$refreshTime.'; URL = admin\index.php');
+        }
+        header('Refresh: '.$refreshTime.'; URL = facility\index.php');
+
     }else{
         echo "<h1>Bad username and password</h1>";
         header('Refresh: '.$refreshTime.'; URL = login.php');

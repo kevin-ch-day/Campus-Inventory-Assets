@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
 $page_title = 'Administrator Menu';
-include(SHARED_PATH . '/admin_header.php');
+include(SHARED_PATH . '/facility_header.php');
 
 if(is_post_request()) {
 	$sql = "select * from tickets";
@@ -49,6 +49,6 @@ if(is_post_request()) {
 </div>
 
 <?php
-include(SHARED_PATH . '/admin_footer.php');
+include(SHARED_PATH . '/facility_footer.php');
 ?>
 
