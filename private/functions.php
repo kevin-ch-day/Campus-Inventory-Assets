@@ -49,6 +49,10 @@ function query($sql){
   global $db;
   //echo "$sql<br/>";
   $result = mysqli_query($db, $sql);
+  if(!$result){
+		die("Query Failed: ".$db->error);
+  }
+  
   confirm_result_set($result);
   return $result;
 }
@@ -60,11 +64,10 @@ function authentication($user, $passwd){
   mysqli_select_db($db, "users");
 
   if(empty($username_err) && empty($password_err)){
-    $sql = "select username, password from users";
+    $sql = "select username, password from application_users";
     $result = $db->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
-        echo "Testing username & password<br/>";
         echo "Username: ".$row["username"]."<br/>";
         echo "Password: ".$_POST["password"]."<br/>";
         if(!strcmp($row["username"], $user)){

@@ -3,8 +3,6 @@ require_once('../../../private/initialize.php');
 $page_title = 'Administrator Menu';
 include(SHARED_PATH . '/admin_header.php');
 
-$sql = "select * from users";
-$user_set = query($sql);
 ?>
 
 <div id="content">
@@ -23,7 +21,11 @@ $user_set = query($sql);
         <th>&nbsp;</th>
   	  </tr>
 
-      <?php while($users = mysqli_fetch_assoc($user_set)) { ?>
+      <?php
+        $sql = "select * from application_users";
+        $user_set = query($sql);
+          while($users = mysqli_fetch_assoc($user_set)) {
+      ?>
         <tr>
           <td><?php echo h($users['username']); ?></td>
           <td><?php echo h($users['password']); ?></td>

@@ -2,21 +2,27 @@
 
 require_once('../../../private/initialize.php');
 
+
 if(is_post_request()) {
+  $sql = "select * from application_users";
+  $set = query($sql);
+  $lastId;
+  while($i = mysqli_fetch_assoc($set)){
+    $lastId = $i['id'];
+  }
 
   $username = $_POST["username"];
-  $passwd = $_POST["password"];
+  $password = $_POST["password"];
   $admin = $_POST["admin"];
 
-  $sql = "INSERT INTO users (username, password, admin) ";
-  $sql .= "VALUES ('$username', '$passwd', '$admin');";
+  $sql = "INSERT INTO application_users (id, username, password, admin) ";
+  $sql .= "VALUES ($lastId+1, '$username', '$password', '$admin')";
   query($sql);
-
 } else {
   // to do
 }
 
-$page_title = 'Create a Building';
+$page_title = 'Create a user';
 include(SHARED_PATH . '/admin_header.php');
 ?>
 
@@ -25,7 +31,7 @@ include(SHARED_PATH . '/admin_header.php');
   <a class="back-link" href="<?php echo url_for('/admin/users/index.php'); ?>">&laquo; Back to List</a>
 
   <div class="page new">
-    <h1>Create Building</h1>
+    <h1>Create a User</h1>
     <form action="<?php echo url_for('/admin/users/new.php'); ?>" method="post">
       Username: <input type ="text" name="username"><br>
       Password: <input type ="text" name="password"><br>
