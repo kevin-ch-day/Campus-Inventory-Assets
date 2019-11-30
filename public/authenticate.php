@@ -41,10 +41,12 @@ if(!$_POST["username"] && !$_POST["password"]){
 
     if(authentication($username, $passwd)){
         echo "<h1>Access Granted!!</h1>";
+
         if(isAdmin($username)){
             header('Refresh: '.$refreshTime.'; URL = admin\index.php');
+        }else{
+            header('Refresh: '.$refreshTime.'; URL = facility\index.php');
         }
-        header('Refresh: '.$refreshTime.'; URL = facility\index.php');
 
     }else{
         echo "<h1>Bad username and password</h1>";

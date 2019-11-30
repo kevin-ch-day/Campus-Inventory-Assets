@@ -30,8 +30,8 @@ include(SHARED_PATH . '/admin_header.php');
           <td><?php echo h($users['username']); ?></td>
           <td><?php echo h($users['password']); ?></td>
     	    <td><?php echo h($users['admin']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/admin/users/edit.php?id=' . h(u($users['building_id']))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/admin/users/delete.php?id=' . h(u($users['building_id']))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('/admin/users/edit.php?id=' . h(u($users['userid']))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/admin/users/delete.php?id=' . h(u($users['userid']))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>

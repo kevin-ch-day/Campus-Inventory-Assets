@@ -79,15 +79,19 @@ function authentication($user, $passwd){
 }
 
 function isAdmin($username){
+
 	$sql = "select * from application_users";
-	$set = query($sql);
+  $set = query($sql);
+  
 	while($i = mysqli_fetch_assoc($set)){
+
 		if(!strcmp($i['username'], $username)){
-			if($i['admin'] == 1){
+			if($i['admin'] == "1"){
 				return true;
 			}
 		}
-	}
+  }
+  
 	return false;
 }
 

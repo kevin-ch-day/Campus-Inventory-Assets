@@ -1,6 +1,7 @@
 drop database TriCityAssets;
 create database TriCityAssets;
 use TriCityAssets;
+
 CREATE TABLE building(
     building_id int(4) PRIMARY KEY,
     building_name VARCHAR(50),
@@ -11,6 +12,7 @@ CREATE TABLE building(
     build_create_date date,
     build_update_date date
 );
+
 INSERT INTO building VALUES (001, 'TriCityUnited High School', '700 4th St NW', 'Montgomery', 'MN', '56069', NOW(), NULL);
 INSERT INTO building VALUES (002, 'Montgomery Middle School', 'Montgomery', NOW(), NULL);
 INSERT INTO building VALUES (003, 'Lonsdale Elementery', 'Lonsdale', NOW(), NULL);
@@ -29,6 +31,7 @@ create table advisor(
     advis_update_date date,
     FOREIGN KEY(building_id) REFERENCES building(building_id)
 );
+
 INSERT INTO advisor VALUES (4001,'Jeff','Ballman',004 , NOW(), NULL);
 INSERT INTO advisor VALUES (4002,'Andrew','Bastyr',004 , NOW(), NULL);
 INSERT INTO advisor VALUES (4003,'Phil','Campbell',004 , NOW(), NULL);
@@ -54,6 +57,7 @@ create table student(
     stu_date_updated date,
     foreign key(advisor_id) references advisor(advisor_id)
 );
+
 INSERT INTO student VALUES (1001, 'BENSON', 'CAMRYN', 2023, 2001, NOW(), NULL);
 INSERT INTO student VALUES (1002,'BLOHM','THOMAS',2023, 4001, NOW(), NULL);
 INSERT INTO student VALUES (1003,'BURNS','OLIVIA',2023, 4001, NOW(), NULL);
@@ -119,6 +123,7 @@ INSERT INTO purchase values(2,001,0003, '2017-05-12', NOW(), NULL);
 INSERT INTO purchase values(3,001,0002, '2016-05-12', NOW(), NULL);
 INSERT INTO purchase values(4,003,0003, '2017-05-12', NOW(), NULL);
 INSERT INTO purchase values(5,004,0004, '2018-06-12', NOW(), NULL);
+
  CREATE TABLE asset(
    asset_id int(4)  PRIMARY KEY,
    serialNumber varchar(15),
@@ -209,6 +214,7 @@ CREATE TABLE deployment(
     dep_update_date date,
     FOREIGN KEY(student_id) REFERENCES student(student_id),
     FOREIGN KEY(asset_id) REFERENCES asset(asset_id));
+
 INSERT INTO deployment VALUES(1001,301,'2018-08-25','2018-09-30',000001,NULL);
 INSERT INTO deployment VALUES(1002,276,'2018-08-25','2018-10-30',000002,NULL);
 INSERT INTO deployment VALUES(1005,340,'2018-08-25',NULL,000003,NULL);
@@ -229,12 +235,8 @@ INSERT INTO deployment VALUES(1007,704,'2018-11-20',NULL,000017,NULL);
 INSERT INTO deployment VALUES(1008,0546,'2018-11-20',NULL,000018,NULL);
 INSERT INTO deployment VALUES(1001,0582,'2018-11-20',NULL,000019,NULL);
 
-
-
-
-
-
-
-
-
-
+CREATE TABLE application_users(
+    userid int(4) PRIMARY KEY,
+    username varchar(25),
+    passwd varchar(30)
+    admin int(2));
