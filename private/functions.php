@@ -60,7 +60,7 @@ function query($sql){
 function authentication($user, $passwd){
   global $db;
 
-  mysqli_select_db($db, "users");
+  mysqli_select_db($db, "tricityassets");
 
   if(empty($username_err) && empty($password_err)){
     $sql = "select username, password from application_users";

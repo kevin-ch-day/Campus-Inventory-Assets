@@ -3,7 +3,7 @@ require_once('../../../private/initialize.php');
 $page_title = 'Administrator Menu';
 include(SHARED_PATH . '/admin_header.php');
 
-$sql = "select * from tickets";
+$sql = "select * from repair";
 $set = query($sql);
 
 ?>
@@ -17,12 +17,12 @@ $set = query($sql);
 
 		<table class="list">
   	  <tr>
-        <th>Ticket ID</th>
-        <th>Device ID</th>
-        <th>Studnet ID</th>
-        <th>Issue</th>
+        <th>Repair ID</th>
+        <th>Student ID</th>
+        <th>Asset ID</th>
   	    <th>Description</th>
-		<th>Date Created</th>
+		<th>Start Date</th>
+		<th>Complete Date</th>
   	    <th>&nbsp;</th>
   	    <th>&nbsp;</th>
         <th>&nbsp;</th>
@@ -30,15 +30,20 @@ $set = query($sql);
 
       <?php while($i = mysqli_fetch_assoc($set)) { ?>
         	<tr>
-          		<td><?php echo h($i['ticketID']); ?></td>
-          		<td><?php echo h($i['deviceID']); ?></td>
-    			<td><?php echo h($i['studentID']); ?></td>
-          		<td><?php echo h($i['issue']); ?></td>
-          		<td><?php echo h($i['description']); ?></td>
-		  		<td><?php echo h($i['dateCreated']); ?></td>
-          		<td><a class="action" href="<?php echo url_for('/admin/tickets/show.php?id=' . h(u($i['ticketID']))); ?>">View</a></td>
-          		<td><a class="action" href="<?php echo url_for('/admin/tickets/edit.php?id=' . h(u($i['ticketID']))); ?>">Edit</a></td>
-          		<td><a class="action" href="<?php echo url_for('/admin/tickets/delete.php?id=' . h(u($i['ticketID']))); ?>">Delete</a></td>
+          		<td><?php echo h($i['repair_id']); ?></td>
+          		<td><?php echo h($i['student_id']); ?></td>
+    			<td><?php echo h($i['asset_id']); ?></td>
+          		<td><?php echo h($i['repair_description']); ?></td>
+          		<td><?php echo h($i['repair_start_date']); ?></td>
+				  <td><?php
+				  if(h($i['repair_complete_date']) == "0000-00-00"){
+					echo "Not Completed";
+				  }else{
+					echo h($i['repair_complete_date']);
+				  }; ?></td>
+          		<td><a class="action" href="<?php echo url_for('/admin/tickets/show.php?id=' . h(u($i['repair_id']))); ?>">View</a></td>
+          		<td><a class="action" href="<?php echo url_for('/admin/tickets/edit.php?id=' . h(u($i['repair_id']))); ?>">Edit</a></td>
+          		<td><a class="action" href="<?php echo url_for('/admin/tickets/delete.php?id=' . h(u($i['repair_id']))); ?>">Delete</a></td>
     		</tr>
       <?php } ?>
   	</table>

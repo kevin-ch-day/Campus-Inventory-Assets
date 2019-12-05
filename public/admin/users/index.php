@@ -28,7 +28,7 @@ include(SHARED_PATH . '/admin_header.php');
       ?>
         <tr>
           <td><?php echo h($users['username']); ?></td>
-          <td><?php echo h($users['password']); ?></td>
+          <td><?php echo h($users['passwd']); ?></td>
     	    <td><?php echo h($users['admin']); ?></td>
           <td><a class="action" href="<?php echo url_for('/admin/users/edit.php?id=' . h(u($users['userid']))); ?>">Edit</a></td>
           <td><a class="action" href="<?php echo url_for('/admin/users/delete.php?id=' . h(u($users['userid']))); ?>">Delete</a></td>

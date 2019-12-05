@@ -108,6 +108,7 @@ INSERT INTO warranty VALUES(0002, '2016-06-12', '2020-6-12', 'Accidental Drop 4 
 INSERT INTO warranty VALUES(0003, '2017-06-12', '2020-6-12', 'Accidental Drop 3 Year', 3, NOW(), NULL);
 INSERT INTO warranty VALUES(0004, '2018-07-01', '2019-7-01', 'Manfacturer Defect 1 year', 3, NOW(), NULL);
 
+/*
 CREATE TABLE purchase(
   purchase_num int(10) PRIMARY KEY,
   vendor_id int(3),
@@ -117,6 +118,16 @@ CREATE TABLE purchase(
   purch_update_date date,
   FOREIGN KEY(vendor_id) REFERENCES vendor(vendor_id),
   FOREIGN KEY(warranty_id) REFERENCES warranty(warranty_id));
+*/
+
+CREATE TABLE purchase(
+  purchase_num int(10) PRIMARY KEY,
+  vendor_id int(3),
+  warranty_id int(4),  
+  purchase_date date,
+  purch_create_date date,
+  purch_update_date date
+);
 
 INSERT INTO purchase values(1,001,0001, '2015-05-12', NOW(), NULL);
 INSERT INTO purchase values(2,001,0003, '2017-05-12', NOW(), NULL);
@@ -124,6 +135,7 @@ INSERT INTO purchase values(3,001,0002, '2016-05-12', NOW(), NULL);
 INSERT INTO purchase values(4,003,0003, '2017-05-12', NOW(), NULL);
 INSERT INTO purchase values(5,004,0004, '2018-06-12', NOW(), NULL);
 
+/*
  CREATE TABLE asset(
    asset_id int(4)  PRIMARY KEY,
    serialNumber varchar(15),
@@ -134,7 +146,19 @@ INSERT INTO purchase values(5,004,0004, '2018-06-12', NOW(), NULL);
    asset_create_date date,
    asset_update_date date,
    FOREIGN KEY(purchase_num) REFERENCES purchase(purchase_num));
-   
+*/
+
+ CREATE TABLE asset(
+   asset_id int(4)  PRIMARY KEY,
+   serialNumber varchar(15),
+   brand varchar(20),
+   model varchar(20),
+   purchase_num int(10),
+   EOL_date date,
+   asset_create_date date,
+   asset_update_date date
+);
+
 INSERT INTO asset VALUES(0052,'5CD61551TG','HP','G4 11 EE',1,'2020-07-11', '2016-07-11', NULL);
 INSERT INTO asset VALUES(0894,'5CD7105DFD','HP','G4 11 EE',1,'2020-07-11', '2016-07-11', NULL);
 INSERT INTO asset VALUES(0892,'5CD7106HB3','HP','G4 11 EE',1,'2020-07-11', '2016-07-11', NULL);
@@ -180,6 +204,7 @@ INSERT INTO asset VALUES(0188,'LR05N6P6','Lenovo','Yoga 11E',4,'2023-07-01', '20
 INSERT INTO asset VALUES(0169,'LR05N6PP','Lenovo','Yoga 11E',4,'2023-07-01', '2018-07-01', NULL);
 INSERT INTO asset VALUES(0133,'LROSN6QG','Lenovo','Yoga 11E',4,'2023-07-01', '2018-07-01', NULL);
 
+/*
 create TABLE repair (
    repair_id int(6) PRIMARY KEY,
    student_id int(6),
@@ -189,6 +214,15 @@ create TABLE repair (
    repair_complete_date date,
    FOREIGN KEY(student_id) REFERENCES student(student_id),
    FOREIGN KEY(asset_id) REFERENCES asset(asset_id));
+*/
+create TABLE repair (
+   repair_id int(6) PRIMARY KEY,
+   student_id int(6),
+   asset_id int(4),        
+   repair_description VARCHAR(250),
+   repair_start_date date,
+   repair_complete_date date
+);
 
 INSERT INTO repair VALUES(1,1001,301,'Display backlight is out.  Screen is black.','2018-11-02','2018-11-18');
 INSERT INTO repair VALUES(2,1002,276,'Display backlight is out.  Screen is black.','2018-11-02','2018-11-18');
