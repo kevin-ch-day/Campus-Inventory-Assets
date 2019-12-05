@@ -56,43 +56,4 @@ function query($sql){
   confirm_result_set($result);
   return $result;
 }
-
-function authentication($user, $passwd){
-  global $db;
-
-  mysqli_select_db($db, "tricityassets");
-
-  if(empty($username_err) && empty($password_err)){
-    $sql = "select username, password from application_users";
-    $result = $db->query($sql);
-    if ($result->num_rows > 0) {
-      while($row = $result->fetch_assoc()) {
-        if(!strcmp($row["username"], $user)){
-          if(!strcmp($row["password"], $passwd)){
-            return true;
-          }
-        }
-      }
-      return false;
-		}
-	}
-}
-
-function isAdmin($username){
-
-	$sql = "select * from application_users";
-  $set = query($sql);
-  
-	while($i = mysqli_fetch_assoc($set)){
-
-		if(!strcmp($i['username'], $username)){
-			if($i['admin'] == "1"){
-				return true;
-			}
-		}
-  }
-  
-	return false;
-}
-
 ?>
