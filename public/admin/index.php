@@ -15,6 +15,7 @@ include(SHARED_PATH . '/admin_header.php');
 	    <li><a href="<?php echo url_for('/admin/student/index.php'); ?>">Student</a></li>
 	    <li><a href="<?php echo url_for('/admin/vendor/index.php'); ?>">Vendor</a></li>
 	    <li><a href="<?php echo url_for('/admin/warranty/index.php'); ?>">Warranty</a></li>
+      <li><a href="<?php echo url_for('/admin/assets/index.php'); ?>">Assets</a></li>
     </ul>
     <p>Admin Menu</p>
     <ul>

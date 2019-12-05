@@ -29,16 +29,15 @@ if(isset($_POST["username"])){
                 header('Refresh: '.$refreshTime.'; URL = facility\index.php');
             }
         } else {
-            echo "<b>Access is denied.</b>";
+            echo "<h2>Access is denied.</h2>";
         }
     }
 }
 ?>
-
         <h1>User Login</h1>
         <form action="login.php" method="post">
-            Username: <input type="text" name="username"><br>
-            Password: <input type="password" name="password"><br>
+            Username: <input type="text" name="username"><br/>
+            Password: <input type="password" name="password"><br/>
             <input type="submit" value="Submit">
         </form>
     </div>

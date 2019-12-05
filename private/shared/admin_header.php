@@ -1,5 +1,5 @@
 <?php
-  if(!isset($page_title)) { $page_title = 'Staff Area'; }
+  if(!isset($page_title)) { $page_title = 'Administrator Area'; }
 ?>
 
 <!doctype html>
@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <h1>Campus Inventory Assets Staff Area</h1>
+      <h1>Campus Inventory Assets - Administrator Area</h1>
     </header>
 
     <navigation>

@@ -2,7 +2,7 @@
 
 require_once('../../../private/initialize.php');
 
-$page_title = 'Warranty';
+$page_title = 'List Warranty';
 include(SHARED_PATH . '/admin_header.php');
 
 $sql ="select * from warranty";
@@ -27,7 +27,6 @@ $advisor_set = query($sql);
         <th>Created</th>
         <th>Updateded</th>
   	    <th>&nbsp;</th>
-  	    <th>&nbsp;</th>
         <th>&nbsp;</th>
   	  </tr>
 
@@ -40,7 +39,6 @@ $advisor_set = query($sql);
           <td><?php echo h($index['war_available_uses']); ?></td>
           <td><?php echo h($index['war_create_date']); ?></td>
           <td><?php echo h($index['war_update_date']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/admin/warranty/show.php?id=' . h(u($index['warranty_id']))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/admin/warranty/edit.php?id=' . h(u($index['warranty_id']))); ?>">Edit</a></td>
           <td><a class="action" href="<?php echo url_for('/admin/warranty/delete.php?id=' . h(u($index['warranty_id']))); ?>">Delete</a></td>
     	  </tr>

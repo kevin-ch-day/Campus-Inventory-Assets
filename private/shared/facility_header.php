@@ -12,7 +12,7 @@
 
   <body>
     <header>
-      <h1>Campus Inventory Assets Staff Area</h1>
+      <h1>Campus Inventory Assets - Staff Area</h1>
     </header>
 
     <navigation>
