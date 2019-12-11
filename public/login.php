@@ -1,7 +1,7 @@
 <?php
 require_once('../private/initialize.php');
 $page_title = 'User Login';
-$refreshTime = 5;
+$refreshTime = .001;
 include(SHARED_PATH . '/header.php');
 
 ?>
