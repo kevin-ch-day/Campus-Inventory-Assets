@@ -12,10 +12,10 @@ $set = query($sql);
     <table class="list">
   	  <tr>
         <th>Asset ID</th>
-        <th>Serial Number</th>
+        <th>Serial</th>
         <th>Brand</th>
         <th>Model</th>
-  	    <th>Purchase Number</th>
+  	    <th>Purchase</th>
         <th>End of life</th>
         <th>Date Created</th>
         <th>Last Updated</th>
@@ -27,10 +27,12 @@ $set = query($sql);
         <tr>
             <td><?php echo h($index['asset_id']); ?></td>
             <td><?php echo h($index['serialNumber']); ?></td>
-    	    <td><?php echo h($index['brand']); ?></td>
+    	      <td><?php echo h($index['brand']); ?></td>
+            <td><?php echo h($index['model']); ?></td>
             <td><?php echo h($index['purchase_num']); ?></td>
             <td><?php echo h($index['EOL_date']); ?></td>
             <td><?php echo h($index['asset_create_date']); ?></td>
+            <td><?php echo "TODO"; /*h($index['asset_create_date']);*/ ?></td>
             <td><a class="action" href="<?php echo url_for('/admin/assets/edit.php?id=' . h(u($index['asset_id']))); ?>">Edit</a></td>
             <td><a class="action" href="<?php echo url_for('/admin/assets/delete.php?id=' . h(u($index['asset_id']))); ?>">Delete</a></td>
     	</tr>
