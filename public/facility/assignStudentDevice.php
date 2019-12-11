@@ -9,14 +9,27 @@ $refreshTime = 1;
     <div id="main-menu">
 <?php
 
-if(isset($_POST['studentId'])){
+if(isset($_POST['student_id']) && isset($_POST['return_date'])){
 
-    $student_id = $_POST['studentId'];
+    $student_id = $_POST['student_id'];
+    $return_date = $_POST['return_date'];
+    $asset_id = $_POST['asset_id'];
+
     if(!checkStudentID($student_id)){
-        echo "<h1>Invalid Student ID</h1>";
-
+?>
+        <h1>Invalid Student ID</h1>
+        <button onclick="window.history.go(-1); return false;">Back</button>
+<?php
     }else{
-        echo "<h1>Valid Studnet ID</h1>";
+        $sql = "insert into deployment (student_id, asset_id, deploy_date, return_date)";
+        $sql .= "values('$student_id', '$asset_id', '".date("Y-m-d")."', '$return_date')";
+        if(query($sql)){
+            echo "<h1>Device has been deployed</h1>";
+            echo "<p>Returning to facility home page</p>";
+            header('Refresh: '.$refreshTime.'; URL = index.php');
+        }else{
+            echo "<h1>Error deploying device</h1>";
+        }
     }
 
 }else if(!isset($_GET['id'])){
@@ -38,7 +51,9 @@ if(isset($_POST['studentId'])){
     <form action="<?php echo url_for('/facility/assignStudentDevice.php'); ?>" method="post">
         <fieldset>
             <legend>Enter Student ID</legend>
-            Student ID: <input type="text" name="studentId"><br/>
+            Student ID: <input type="text" name="student_id"><br/>
+            Return Date: <input type="text" name="return_date"><br/>
+            <input type="hidden" name="asset_id" value="<?php echo $_GET['id']?>">
             <button onclick="window.history.go(-1); return false;">Back</button> 
             <input type="submit" value="Submit">
         </fieldset>
