@@ -56,4 +56,17 @@ function query($sql){
   confirm_result_set($result);
   return $result;
 }
+
+function checkStudentID($studentID){
+  $sql = "select student_id from student";
+  $set = query($sql);
+
+  while($i = mysqli_fetch_assoc($set)){
+    if($i['student_id'] == $studentID){
+      return true;
+    }
+  }
+  return false;
+}
+
 ?>

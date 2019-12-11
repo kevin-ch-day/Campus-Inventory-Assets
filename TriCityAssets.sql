@@ -47,7 +47,7 @@ INSERT INTO advisor VALUES (2006,'Bill','Gregor',002 , NOW(), NULL);
 INSERT INTO advisor VALUES (1001,'Bob','Davis',001 , NOW(), NULL);
 INSERT INTO advisor VALUES (1002,'Bill','Jenkins',001 , NOW(), NULL);
 
-create table student(
+/* create table student(
     student_id int(6) Primary Key,
     student_fname varchar(25),
     student_lname varchar(25),
@@ -57,6 +57,16 @@ create table student(
     stu_date_updated date,
     foreign key(advisor_id) references advisor(advisor_id)
 );
+*/
+
+create table student(
+    student_id int(6) Primary Key,
+    student_fname varchar(25),
+    student_lname varchar(25),
+    grad_year int(4),
+    advisor_id int(4),
+    stu_date_created date,
+    stu_date_updated date);
 
 INSERT INTO student VALUES (1001, 'BENSON', 'CAMRYN', 2023, 2001, NOW(), NULL);
 INSERT INTO student VALUES (1002,'BLOHM','THOMAS',2023, 4001, NOW(), NULL);
@@ -239,7 +249,7 @@ INSERT INTO repair VALUES(12,1016,0615,'Keyboard sticks all left side','2018-11-
 INSERT INTO repair VALUES(13,1010,0591,'Bottom Case broken at right corner','2018-11-02','2018-11-18');
 INSERT INTO repair VALUES(14,1009,0582,'Screen Broken','2018-11-02','2018-11-18');
 
-CREATE TABLE deployment(
+/* CREATE TABLE deployment(
     student_id int(6),
     asset_id int(4),
     deploy_date date,
@@ -248,6 +258,15 @@ CREATE TABLE deployment(
     dep_update_date date,
     FOREIGN KEY(student_id) REFERENCES student(student_id),
     FOREIGN KEY(asset_id) REFERENCES asset(asset_id));
+*/
+
+CREATE TABLE deployment(
+    student_id int(6),
+    asset_id int(4),
+    deploy_date date,
+    return_date date,
+    deploy_id int(6) PRIMARY KEY,
+    dep_update_date date);
 
 INSERT INTO deployment VALUES(1001,301,'2018-08-25','2018-09-30',000001,NULL);
 INSERT INTO deployment VALUES(1002,276,'2018-08-25','2018-10-30',000002,NULL);

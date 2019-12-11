@@ -1,7 +1,7 @@
 <?php
 require_once('../../private/initialize.php');
-$page_title = 'Administrator Menu';
-include(SHARED_PATH . '/header.php');
+$page_title = 'Staff Menu';
+include(SHARED_PATH . '/facility_header.php');
 ?>
 
 <div id="content">
@@ -9,11 +9,11 @@ include(SHARED_PATH . '/header.php');
   <h1>Facility Menu</h1>
 	<ul>
 		<li><a href="createTicket.php">Create a ticket</a></li>
-		<li><a href="assignDevice.php">Assign a student a device</a></li>
+		<li><a href="showDevices.php">Assign a student a device</a></li>
 	</ul>
   </div>
 </div>
 
 <?php
-include(SHARED_PATH . '/footer.php');
+include(SHARED_PATH . '/facility_footer.php');
 ?>
