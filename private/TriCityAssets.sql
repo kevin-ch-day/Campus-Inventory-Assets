@@ -14,12 +14,12 @@ CREATE TABLE building(
 );
 
 INSERT INTO building VALUES (001, 'TriCityUnited High School', '700 4th St NW', 'Montgomery', 'MN', '56069', NOW(), NULL);
-INSERT INTO building VALUES (002, 'Montgomery Middle School', 'Montgomery', NOW(), NULL);
-INSERT INTO building VALUES (003, 'Lonsdale Elementery', 'Lonsdale', NOW(), NULL);
-INSERT INTO building VALUES (004, 'Le Center K-8 School', 'Le Center', NOW(), NULL);
-INSERT INTO building VALUES (005, 'Tri-City United District Office', 'Montgomery', NOW(), NULL);
-INSERT INTO building VALUES (006, 'LeCenter Primary School', 'Le Center', NOW(), NULL);
-INSERT INTO building VALUES (007, 'Tri-City United Community Ed', 'Montgomery', NOW(), NULL);
+INSERT INTO building VALUES (002, 'Montgomery Middle School', '101 2nd St NE # 2', 'Montgomery', 'MN', '56069', NOW(), NULL);
+INSERT INTO building VALUES (003, 'Lonsdale Elementery', '1000 Idaho St SW', 'Lonsdale', 'MN', '55046', NOW(), NULL);
+INSERT INTO building VALUES (004, 'Le Center K-8 School', ' 150 W Tyrone St','Le Center', 'MN', '56057', NOW(), NULL);
+INSERT INTO building VALUES (005, 'Tri-City United District Office', ' 1000 Idaho St SW', 'Montgomery', 'MN', '55046', NOW(), NULL);
+INSERT INTO building VALUES (006, 'LeCenter Primary School', '150 W Tyrone St', 'Le Center', 'MN', '56057', NOW(), NULL);
+/* INSERT INTO building VALUES (007, 'Tri-City United Community Ed', 'Montgomery', NOW(), NULL); */
 
 
 create table advisor(

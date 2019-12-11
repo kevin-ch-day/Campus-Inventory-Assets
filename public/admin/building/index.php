@@ -15,7 +15,7 @@ $building_set = query($sql);
     <h1>Buildings</h1>
 
     <div class="actions">
-      <a class="action" href="<?php echo url_for('/admin/building/new.php'); ?>">Create a new building</a>
+      <!-- <a class="action" href="<?php echo url_for('/admin/building/new.php'); ?>">Create a new building</a> -->
     </div>
 
   	<table class="list">
@@ -26,7 +26,7 @@ $building_set = query($sql);
         <th>Created</th>
   	    <th>Updated</th>
   	    <th>&nbsp;</th>
-  	    <th>&nbsp;</th>
+        <th>&nbsp;</th>
         <th>&nbsp;</th>
   	  </tr>
 
@@ -36,8 +36,16 @@ $building_set = query($sql);
           <td><?php echo h($building['building_name']); ?></td>
     	    <td><?php echo h($building['building_city']); ?></td>
           <td><?php echo h($building['build_create_date']); ?></td>
-          <td><?php echo h($building['build_update_date']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/admin/building/show.php?id=' . h(u($building['building_id']))); ?>">View</a></td>
+          <td>
+<?php
+  if($building['build_update_date'] == null){
+    echo "";
+  }else{
+    echo $building['build_update_date'];
+  }
+?>
+          </td>
+          <td><a class="action" href="<?php echo url_for('/admin/building/view.php?id=' . h(u($building['building_id']))); ?>">View</a></td>
           <td><a class="action" href="<?php echo url_for('/admin/building/edit.php?id=' . h(u($building['building_id']))); ?>">Edit</a></td>
           <td><a class="action" href="<?php echo url_for('/admin/building/delete.php?id=' . h(u($building['building_id']))); ?>">Delete</a></td>
     	  </tr>

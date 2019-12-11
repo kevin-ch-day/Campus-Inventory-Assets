@@ -1,42 +1,42 @@
 <?php
 
 require_once('../../../private/initialize.php');
+$page_title = 'Delete a building';
+include(SHARED_PATH . '/admin_header.php');
 
 if(!isset($_GET['id'])) {
-  redirect_to(url_for('/admin/pages/index.php'));
+  redirect_to(url_for('/admin/building/index.php'));
 }
 $id = $_GET['id'];
-
-if(is_post_request()) {
-
-  $result = delete_page($id);
-  redirect_to(url_for('/admin/pages/index.php'));
-
-} else {
-  $page = find_page_by_id($id);
-}
-
 ?>
 
-<?php $page_title = 'Delete Page'; ?>
-<?php include(SHARED_PATH . '/admin_header.php'); ?>
-
 <div id="content">
+  <div id="main-menu">
 
-  <a class="back-link" href="<?php echo url_for('/admin/pages/index.php'); ?>">&laquo; Back to List</a>
-
-  <div class="page delete">
-    <h1>Delete Page</h1>
-    <p>Are you sure you want to delete this page?</p>
-    <p class="item"><?php echo h($page['menu_name']); ?></p>
-
-    <form action="<?php echo url_for('/admin/pages/delete.php?id=' . h(u($page['id']))); ?>" method="post">
-      <div id="operations">
-        <input type="submit" name="commit" value="Delete Page" />
-      </div>
-    </form>
+<?php
+if(is_post_request()){
+  // building as deleted
+  $sql = "DELETE FROM building WHERE building_id = $id";
+  if(!query($sql)){
+    echo "<h1>Error deleting building</h1>";
+  }else{
+    echo "<h1>Building Deleted</h1>";
+  }
+} else {
+?>
+  <h1>Delete a bulding</h1>
+  <p>Are you sure you want to delete this building?</p>
+  <form action="<?php echo url_for('/admin/building/delete.php?id='.$id); ?>" method="post">
+    <div id="operations">
+      <input type="submit" name="commit" value="Delete Bulding" />
+    </div>
+  </form>
+<?php
+}
+?>
   </div>
-
 </div>
 
-<?php include(SHARED_PATH . '/admin_footer.php'); ?>
+<?php
+include(SHARED_PATH . '/admin_footer.php');
+?>
