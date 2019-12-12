@@ -40,9 +40,9 @@ $student_set = query($sql);
           <td><?php echo h($index['advisor_id']); ?></td>
           <td><?php echo h($index['stu_date_created']); ?></td>
           <td><?php echo h($index['stu_date_updated']); ?></td>
-          <td><a class="action" href="<?php echo url_for('/admin/adivsor/show.php?id=' . h(u($index['advisor_id']))); ?>">View</a></td>
-          <td><a class="action" href="<?php echo url_for('/admin/adivsor/edit.php?id=' . h(u($index['advisor_id']))); ?>">Edit</a></td>
-          <td><a class="action" href="<?php echo url_for('/admin/adivsor/delete.php?id=' . h(u($index['advisor_id']))); ?>">Delete</a></td>
+          <td><a class="action" href="<?php echo url_for('/admin/student/view.php?id=' . h(u($index['student_id']))); ?>">View</a></td>
+          <td><a class="action" href="<?php echo url_for('/admin/student/edit.php?id=' . h(u($index['student_id']))); ?>">Edit</a></td>
+          <td><a class="action" href="<?php echo url_for('/admin/student/delete.php?id=' . h(u($index['student_id']))); ?>">Delete</a></td>
     	  </tr>
       <?php } ?>
   	</table>

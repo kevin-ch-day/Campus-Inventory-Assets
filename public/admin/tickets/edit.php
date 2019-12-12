@@ -1,7 +1,7 @@
 <?php
 
 require_once('../../../private/initialize.php');
-$page_title = 'Edit Building';
+$page_title = 'Edit Repair Ticket';
 include(SHARED_PATH . '/admin_header.php');
 ?>
 
@@ -26,8 +26,7 @@ if(is_post_request()) {
     //$dateUpdated = date("Y-m-d");
 
   $sql = "update repair set ";
-  $sql .= "student_id = '$student' ";
-  $sql .= "asset_id = '$asset', repair_description = '$description' ";
+  $sql .= "student_id='$student', asset_id='$asset', repair_description='$description' ";
   $sql .= "where repair_id = ".$id;
 
   if(!query($sql)){
