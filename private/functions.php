@@ -69,4 +69,22 @@ function checkStudentID($studentID){
   return false;
 }
 
+function getStudentName($id){
+  $sql = "select * from student where student_id = ".$id;
+  $set = query($sql);
+  $i = mysqli_fetch_assoc($set);
+  return $i["student_fname"]." ".$i["student_lname"];
+}
+
+function getAssetInfo($id){
+  $sql = "select * from asset where asset_id = ".$id;
+  $set = query($sql);
+  $i = mysqli_fetch_assoc($set);
+  
+  $s = "Brand: ".$i["brand"]."<br/>Model: ".$i["model"]."<br/>";
+  $s .= "Serial #: ".$i["brand"]."<br/>End of life: ".$i["EOL_date"]."<br/>";
+
+  return $s;
+}
+
 ?>

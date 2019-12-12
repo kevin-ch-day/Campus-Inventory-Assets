@@ -7,7 +7,7 @@ include(SHARED_PATH . '/header.php');
 <div id="content">
   <div id="main-menu">
     <h1>Campus Inventory Assets</h1>
-	<p>More coming soon!</p>
+	  <p>An application that help school's technology administrators can use to track electronic devices </p>
   </div>
 </div>
 

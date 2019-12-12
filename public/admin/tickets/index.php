@@ -12,7 +12,7 @@ $set = query($sql);
   <div id="main-menu">
     <h2>Tickets</h2>
 		<div class="actions">
-			<a class="action" href="<?php echo url_for('/admin/tickets/new.php'); ?>">Create a new ticket</a>
+			<a class="action" href="<?php echo url_for('/admin/tickets/createTicket.php'); ?>">Create a new ticket</a>
 		</div>
 
 		<table class="list">
@@ -41,7 +41,7 @@ $set = query($sql);
 				  }else{
 					echo h($i['repair_complete_date']);
 				  }; ?></td>
-          		<td><a class="action" href="<?php echo url_for('/admin/tickets/show.php?id=' . h(u($i['repair_id']))); ?>">View</a></td>
+          		<td><a class="action" href="<?php echo url_for('/admin/tickets/view.php?id=' . h(u($i['repair_id']))); ?>">View</a></td>
           		<td><a class="action" href="<?php echo url_for('/admin/tickets/edit.php?id=' . h(u($i['repair_id']))); ?>">Edit</a></td>
           		<td><a class="action" href="<?php echo url_for('/admin/tickets/delete.php?id=' . h(u($i['repair_id']))); ?>">Delete</a></td>
     		</tr>
