@@ -32,7 +32,14 @@ $set = query($sql);
             <td><?php echo h($index['purchase_num']); ?></td>
             <td><?php echo h($index['EOL_date']); ?></td>
             <td><?php echo h($index['asset_create_date']); ?></td>
-            <td><?php echo "TODO"; /*h($index['asset_create_date']);*/ ?></td>
+            <td>
+            <?php
+            if($index['asset_update_date'] == null){
+              echo "";
+            }else{
+              echo $index['asset_update_date'];
+            }
+            ?></td>
             <td><a class="action" href="<?php echo url_for('/admin/assets/edit.php?id=' . h(u($index['asset_id']))); ?>">Edit</a></td>
             <td><a class="action" href="<?php echo url_for('/admin/assets/delete.php?id=' . h(u($index['asset_id']))); ?>">Delete</a></td>
     	</tr>

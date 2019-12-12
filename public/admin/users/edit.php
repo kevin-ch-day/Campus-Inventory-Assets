@@ -26,7 +26,7 @@ if(!isset($_GET["id"])){
     
     echo"<table>";
     echo "<tr><td>Username:</td><td>&nbsp;</td><td>".$users['username']."</td></tr>";
-    echo "<tr><td>Password:</td><td>&nbsp;</td><td>".$users['passwd']."</td></tr>";
+    echo "<tr><td>Password:</td><td>&nbsp;</td><td>".$users['password']."</td></tr>";
     echo "<tr><td>Admin access:</td><td>&nbsp;</td><td>".$users['admin']."</td></tr>";
     echo "</table>";
 ?>
